@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block template %}
+
+<div class="mt-5 text-center">
+    <h1>Bienvenido, {{ user.username }}</h1>
+    <a href="{% url 'jugar' %}" class="btn btn-primary">Jugar</a>
+    <a href="{% url 'ver_ranking' %}" class="btn btn-secondary">Ver Ranking</a>
+</div>
+{% endblock%}

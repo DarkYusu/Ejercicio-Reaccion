@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block template %}
+<div class="container mt-5">
+    <h1 class="text-center">Mis Resultados</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>ID de Prueba</th>
+                    <th>Nombre</th>
+                    <th>Letra 1</th>
+                    <th>Tiempo 1</th>
+                    <th>Letra 2</th>
+                    <th>Tiempo 2</th>
+                    <th>Letra 3</th>
+                    <th>Tiempo 3</th>
+                    <th>Letra 4</th>
+                    <th>Tiempo 4</th>
+                    <th>Letra 5</th>
+                    <th>Tiempo 5</th>
+                    <th>Tiempo Total</th> <!-- Nueva columna para la suma de tiempos -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for prueba in pruebas %}
+                <tr>
+                    <td>{{ prueba.id }}</td>
+                    <td>{{ prueba.usuario.username }}</td>
+                    <td>{{ prueba.letra_1 }}</td>
+                    <td>{{ prueba.tiempo_1 }}</td>
+                    <td>{{ prueba.letra_2 }}</td>
+                    <td>{{ prueba.tiempo_2 }}</td>
+                    <td>{{ prueba.letra_3 }}</td>
+                    <td>{{ prueba.tiempo_3 }}</td>
+                    <td>{{ prueba.letra_4 }}</td>
+                    <td>{{ prueba.tiempo_4 }}</td>
+                    <td>{{ prueba.letra_5 }}</td>
+                    <td>{{ prueba.tiempo_5 }}</td>
+                    <td>{{ prueba.tiempo_total }}</td> <!-- Muestra el tiempo total -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-4 text-center">
+        <a href="{% url 'ver_ranking' %}" class="btn btn-secondary">Ver Ranking Global</a>
+        <a href="{% url 'dashboard' %}" class="btn btn-primary">Volver a Jugar</a>
+    </div>
+</div>
+{% endblock %}
